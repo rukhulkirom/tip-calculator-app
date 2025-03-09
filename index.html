@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Tip calculator app</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="logo">
+      <img src="./images/logo.svg" alt="Logo" />
+    </div>
+
+    <main class="calculator">
+      <div class="input-section">
+        <div class="bill-container">
+          <div class="label">
+            <span>Bill</span>
+            <span class="error-message" id="bill-error">Can't be zero</span>
+          </div>
+          <input type="text" class="input" id="bill-input" placeholder="0" />
+        </div>
+
+        <div class="tip-selection">
+          <div class="label">Select Tip %</div>
+          <div class="tip-grid">
+            <button class="tip-btn" data-tip="5">5%</button>
+            <button class="tip-btn" data-tip="10">10%</button>
+            <button class="tip-btn" data-tip="15">15%</button>
+            <button class="tip-btn" data-tip="25">25%</button>
+            <button class="tip-btn" data-tip="50">50%</button>
+            <input
+              type="text"
+              class="custom-tip"
+              id="custom-tip"
+              placeholder="Custom"
+            />
+          </div>
+        </div>
+
+        <div class="people-container">
+          <div class="label">
+            <span>Number of People</span>
+            <span class="error-message" id="people-error">Can't be zero</span>
+          </div>
+          <input type="text" class="input" id="people-input" placeholder="0" />
+        </div>
+      </div>
+
+      <div class="result-section">
+        <div>
+          <div class="result-row">
+            <div>
+              <p class="result-label">Tip Amount</p>
+              <p class="result-sublabel">/ person</p>
+            </div>
+            <div class="result-amount" id="tip-amount">$0.00</div>
+          </div>
+
+          <div class="result-row">
+            <div>
+              <p class="result-label">Total</p>
+              <p class="result-sublabel">/ person</p>
+            </div>
+            <div class="result-amount" id="total-amount">$0.00</div>
+          </div>
+        </div>
+
+        <button class="reset-btn" id="reset-btn" disabled>Reset</button>
+      </div>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

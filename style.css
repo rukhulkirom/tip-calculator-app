@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+:root {
+  --primary-color: hsl(172, 67%, 45%);
+  --dark-cyan: hsl(183, 100%, 15%);
+  --dark-grayish-cyan: hsl(186, 14%, 43%);
+  --grayish-cyan: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+  --error-color: hsl(13, 70%, 60%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Mono", monospace;
+}
+
+body {
+  background-color: var(--light-grayish-cyan);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.logo {
+  margin: 2rem 0 3rem;
+}
+
+.logo img {
+  display: block;
+}
+
+.calculator {
+  background-color: var(--white);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.label {
+  color: var(--dark-grayish-cyan);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.error-message {
+  color: var(--error-color);
+  display: none;
+  font-size: 0.9rem;
+}
+
+.bill-container,
+.people-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.bill-container::before,
+.people-container::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  left: 1rem;
+  bottom: 14px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bill-container::before {
+  background-image: url("./images/icon-dollar.svg");
+}
+
+.people-container::before {
+  background-image: url("./images/icon-person.svg");
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  background-color: var(--very-light-grayish-cyan);
+  border-radius: 0.3rem;
+  text-align: right;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--dark-cyan);
+  cursor: pointer;
+}
+
+.input:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+.input.error {
+  outline: 2px solid var(--error-color);
+}
+
+.tip-selection {
+  margin-bottom: 2rem;
+}
+
+.tip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.tip-btn {
+  background-color: var(--dark-cyan);
+  color: var(--white);
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tip-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--dark-cyan);
+}
+
+.tip-btn.active {
+  background-color: var(--primary-color);
+  color: var(--dark-cyan);
+}
+
+.custom-tip {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  background-color: var(--very-light-grayish-cyan);
+  border-radius: 0.3rem;
+  text-align: right;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--dark-cyan);
+}
+
+.custom-tip:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+.custom-tip::placeholder {
+  color: var(--dark-grayish-cyan);
+  text-align: center;
+}
+
+.result-section {
+  background-color: var(--dark-cyan);
+  border-radius: 1rem;
+  padding: 2.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.result-label {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.result-sublabel {
+  color: var(--grayish-cyan);
+  font-size: 0.8rem;
+}
+
+.result-amount {
+  color: var(--primary-color);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.reset-btn {
+  background-color: var(--primary-color);
+  color: var(--dark-cyan);
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 2rem;
+}
+
+.reset-btn:hover {
+  background-color: var(--light-grayish-cyan);
+}
+
+.reset-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+@media screen and (min-width: 768px) {
+  .calculator {
+    grid-template-columns: 1fr 1fr;
+    padding: 2.5rem;
+  }
+
+  .tip-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .result-section {
+    padding: 3rem 2rem 2rem;
+  }
+
+  .result-amount {
+    font-size: 2.5rem;
+  }
+}
